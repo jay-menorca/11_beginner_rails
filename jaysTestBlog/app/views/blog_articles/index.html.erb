@@ -1,0 +1,12 @@
+<h1>Jay Says HI!!!</h1>
+
+<%= link_to "New Article", new_blog_article_path %>
+
+
+<ul>
+<%= @articles.each do |article|%>
+	<li><%= link_to article.title, article %></li>
+<%end%>
+</ul>
+
+<br>
