@@ -1,12 +1,19 @@
 <h1>Jay Says HI!!!</h1>
 
 <%= link_to "New Article", new_blog_article_path %>
-
-
-<ul>
-<%= @articles.each do |article|%>
-	<li><%= link_to article.title, article %></li>
-<%end%>
-</ul>
-
 <br>
+<h1>Listing Articles</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+ 
+  <% @articles.each do |post| %>
+    <tr>
+      <td><%= link_to post.title, post %></td>
+      <td><%= post.content %></td>
+    </tr>
+  <% end %>
+</table>
