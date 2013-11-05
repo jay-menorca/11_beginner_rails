@@ -9,16 +9,20 @@ def show
 end
 
 def new
-	@blog_article = BlogArticle.new
+	@article = BlogArticle.new
 end
 
 def create
 	@article = BlogArticle.new
 	@article.title = params[:blog_article][:title]
 	@article.content = params[:blog_article][:content]
-	@article.save
-
-	redirect_to blog_article_path@article
+	
+	if @article.save
+#		redirect_to blog_article_path(@article)
+		redirect_to @article
+	else
+		render :new
+	end
 end
 
 def edit
@@ -28,8 +32,12 @@ end
 def update
 	@article = BlogArticle.find(params[:id])
 	@article.update_attributes(article_params)
-	@article.save
-	redirect_to @article
+
+	if @article.save
+		redirect_to @article
+	else
+		render :edit
+	end
 end
 
 def destroy
