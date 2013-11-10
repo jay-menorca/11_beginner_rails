@@ -1,6 +1,6 @@
-<h1>Pictures</h1>
+<h1>Pictures (<%= @pictures.length%>)</h1>
 
-<%= link_to "New Picture", pictures_new_url%>
+<%= link_to "New Picture", new_picture_url%>
 
 <% @pictures.each do |picture|%>
 <p><%= picture[:title]%>, <%= picture[:artist]%></p>
