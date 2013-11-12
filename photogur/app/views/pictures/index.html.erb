@@ -5,5 +5,19 @@
 <% @pictures.each do |picture|%>
 <p><%= picture[:title]%>, <%= picture[:artist]%></p>
 <%= link_to image_tag(picture.url), "/pictures/#{picture.id}"%>
-
 <%end%>
+
+<h1>Most Recent Pics</h1>
+<ul>
+	<% @most_recent_pictures.each do |picture|%>
+	<li><%= picture.title%></li>
+	<%end%>
+</ul>
+
+
+<h2>Pictures created before today: <%= @last_month_pictures.count %></h2>
+<ul>
+	<% @last_month_pictures.each do |picture|%>
+	<li><%= picture.title%></li>
+	<%end%>
+</ul>
