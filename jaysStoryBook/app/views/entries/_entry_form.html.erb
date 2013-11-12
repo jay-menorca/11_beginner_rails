@@ -1,0 +1,29 @@
+<%= link_to "Back to Entries", entries_path%>
+
+<%= form_for @entry do |e|%>
+
+	<%if @entry.errors.any? %>
+		<div id="error_explanation">
+		<h2><%= pluralize(@entry.errors.count, "error")%> 
+			prohibited this entry from being saved:
+		</h2>
+		<ul>
+			<% @entry.errors.full_messages.each do |msg| %>
+			<li><%= msg%></li>
+			<%end%>
+		</ul>
+		</div>
+	<%end%>
+
+	<p>
+		<%= e.label :title %><br>
+		<%= e.text_field :title %>
+	</p>
+	<p>
+		<%= e.label :text%><br>
+		<%= e.text_area :text%>
+	</p>
+	<p>
+		<%= e.submit%>
+	</p>
+<%end%>
